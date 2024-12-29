@@ -37,7 +37,7 @@ public class AutoIgnite implements ModInitializer {
 		});
 	}
 	private void spawnTnt(ServerWorld world, BlockPos pos, PlayerEntity player) {
-		TntEntity tntEntity = new TntEntity(world, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, player);
+		TntEntity tntEntity = new TntEntity(world, pos.getX(), pos.getY(), pos.getZ(), player);
 		world.spawnEntity(tntEntity);
 		tntEntity.setFuse(20); // 1 second
 		player.sendMessage(Text.of("Auto-igniting TNT"), false);
