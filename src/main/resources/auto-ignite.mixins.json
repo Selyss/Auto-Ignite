@@ -3,7 +3,8 @@
 	"package": "selyss.autoignite.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"IgniteMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
