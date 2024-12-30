@@ -14,18 +14,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TntEntity.class)
 public abstract class FuseTimeMixin {
-    @Shadow
-    private static TrackedData<Integer> FUSE;
-
-
-    @Inject(at = @At("TAIL"), method = "<init>*")
+    @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/world/World;DDDLnet/minecraft/entity/LivingEntity;)V")
     private void onTntEntityCreate(World world, double x, double y, double z, @Nullable LivingEntity igniter, CallbackInfo ci) {
         // make sure its single player (is this needed)
         if (!MinecraftClient.getInstance().isInSingleplayer()) {
             return;
         }
         TntEntity tntEntity = (TntEntity) (Object) this;
-        tntEntity.getDataTracker().set(FUSE, 20);
-//        tntEntity.setFuse(20); // 1 second
+        tntEntity.setFuse(20); // 1 second
     }
 }
