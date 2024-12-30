@@ -21,6 +21,7 @@ public abstract class FuseTimeMixin {
             return;
         }
         TntEntity tntEntity = (TntEntity) (Object) this;
+        tntEntity.setPosition(x, y + 0.5, z);
         tntEntity.setFuse(20); // 1 second
     }
 }
