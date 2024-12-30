@@ -3,9 +3,9 @@
 	"id": "auto-ignite",
 	"version": "${version}",
 	"name": "Auto Ignite",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Auto Ignite is a mod that automatically ignites TNT and Creepers.",
 	"authors": [
-		"Me!"
+		"Selyss"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",

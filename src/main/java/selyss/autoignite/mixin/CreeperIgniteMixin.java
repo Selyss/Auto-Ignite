@@ -1,5 +1,6 @@
 package selyss.autoignite.mixin;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -20,6 +21,11 @@ public abstract class CreeperIgniteMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onInit(EntityType entityType, World world, CallbackInfo ci) {
+        // make sure its single player (is this needed)
+        if (!MinecraftClient.getInstance().isInSingleplayer()) {
+            return;
+        }
+
         CreeperEntity creeper = (CreeperEntity) (Object) this;
         creeper.getDataTracker().set(IGNITED, true);
         this.fuseTime = 20;
